@@ -1,0 +1,47 @@
+body {
+    font-family: courier, sans-serif;
+}
+
+h2 {
+    font-size: 3em;
+}
+
+input {
+    font-family: courier, sans-serif;
+    height: 3em;
+    text-align: center;
+}
+
+button {
+    font-family: courier, sans-serif;
+    margin: .5em;
+    height: 2em;
+}
+
+#showInfo,
+#deleteStuff {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 2em;
+}
+
+#buttons,
+#deleteButton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1em;
+}
+
+span {
+    margin-top: 0;
+}
+
+#upcoming {
+    margin-bottom: 0;
+}
+
+#deleteInput {
+    width: 30em;
+}

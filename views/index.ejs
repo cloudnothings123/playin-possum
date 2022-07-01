@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Possum Music for Possum People</title>
+    <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<section id="showInfo">
+    <h2>Show Info...Please</h2>
+    <form action="/api" method="POST">
+        <input type="text" placeholder="date of show" name="date">
+        <input type="text" placeholder="bands playing" name="bands"></input>
+        <input type="text" placeholder="venue" name="venue">
+        <input type="text" placeholder="ticket price" name="ticketPrice">
+        <input type="text" placeholder="start time" name="startTime">
+        <section id="buttons">
+        <button type="submit">SUBMIT NEW</button>
+        <button type="button" id="updateButton">UDPATE EXISTING</button>
+        </section>
+    </form>
+</section>
+<section id="deleteStuff">
+    <h2>Delete Something Bad</h2>
+    <input type="text" placeholder="enter band names here" name="deleteInput" id="deleteInput"></input>
+    <button id="deleteButton">DELETE</button>
+
+    <h2 id="upcoming">Upcoming Shows</h2>
+    <span>(for your reference)</span>
+    <ul class="shows">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="show">
+            <span><%= info[i] %></span>
+        </li>
+    <% } %>
+    </ul>
+
+    </form>
+</section>
+<script type="text/javascript" src='main.js'></script>
+</body>
+</html>
