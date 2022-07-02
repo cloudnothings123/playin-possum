@@ -29,9 +29,9 @@ app.use(express.json())
 app.get('/',(request, response)=>{
     db.collection('playin-possum').find().toArray()
     .then(data => {
-        let showList = data.map(a => `${a.date} - ${a.bands} - ${a.venue} - ${a.ticketPrice} - ${a.startTime} - ${a.ticketLink}`)
-        console.log(showList)
-        response.render('index.ejs', { info: showList })
+        let showObject = Object.assign({}, data)
+        response.render('index.ejs', {info: data})
+        console.log(showObject)
     })
     .catch(error => console.error(error))
 })
@@ -53,7 +53,7 @@ app.post('/api', (req,res) => {
     )
     .then(result => {
         console.log(result)
-        res.redirect('/')
+        res.redirect('/playinpossum')
     })
     .catch(error => console.error(error))
 })
