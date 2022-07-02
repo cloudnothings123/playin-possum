@@ -53,7 +53,7 @@ app.post('/api', (req,res) => {
     )
     .then(result => {
         console.log(result)
-        res.redirect('/playinpossum')
+        res.redirect('/')
     })
     .catch(error => console.error(error))
 })
