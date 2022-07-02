@@ -13,10 +13,14 @@
     <ul class="shows">
     <% for(let i=0; i < info.length; i++) {%>
         <li class="show">
-            <span class="bold"><%= info[i].date %></span><span> - </span><span><%= info[i].bands %></span><span> - </span><span><%= info[i].venue %></span><span> - </span><span><%= info[i].ticketPrice %></span><span> - </span><span><%= info[i].startTime %></span><span> - </span><span><a href="<%= info[i].ticketLink %>">♣</a></span>
+            <span class="bold"><%= info[i].date %></span><span>  </span><span><%= info[i].bands %></span><span> - </span><span><%= info[i].venue %></span><span> - </span><span><%= info[i].ticketPrice %></span><span> - </span><span><%= info[i].startTime %></span><span> - </span><span><a href="<%= info[i].ticketLink %>">♣</a></span>
         </li>
     <% } %>
     </ul>
+
+    <h2>thanks for visiting</h2>
+
+    <span>COMMENTS & SUGGESTIONS: <a href="INFO@PLAYINPOSSUM>ORG">INFO@PLAYINPOSSUM.ORG</a>
 
 <script type="text/javascript" src='main.js'></script>
 </body>

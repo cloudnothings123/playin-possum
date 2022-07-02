@@ -6,7 +6,10 @@ body {
 }
 
 h2 {
+    margin-top: 1.5em;
     font-variant: small-caps;
+    font-size: 1.5em;
+    margin-bottom: 1.3em;
 }
 
 ul {
