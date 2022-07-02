@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Possum Music for Possum People</title>
+    <link rel="stylesheet" href="/possum.css" />
+</head>
+<body>
+
+    <h2 id="upcoming">playing live in philly</h2>
+    <ul class="shows">
+    <% for(let i=0; i < info.length; i++) {%>
+        <li class="show">
+            <span class="bold"><%= info[i].date %></span><span> - </span><span><%= info[i].bands %></span><span> - </span><span><%= info[i].venue %></span><span> - </span><span><%= info[i].ticketPrice %></span><span> - </span><span><%= info[i].startTime %></span><span> - </span><span><a href="<%= info[i].ticketLink %>">♣</a></span>
+        </li>
+    <% } %>
+    </ul>
+
+<script type="text/javascript" src='main.js'></script>
+</body>
+</html>

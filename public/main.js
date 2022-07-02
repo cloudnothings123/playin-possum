@@ -1,6 +1,9 @@
 document.getElementById('deleteButton').addEventListener('click', deleteEntry)
 document.getElementById('updateButton').addEventListener('click', updateEntry)
 
+let dateInput = document.getElementById('date').input
+console.log(dateInput)
+
 async function deleteEntry(){
     const input = document.getElementById("deleteInput")
     console.log(input.value)
@@ -32,6 +35,7 @@ async function updateEntry(){
             venue: document.getElementsByName("venue")[0].value,
             ticketPrice: document.getElementsByName("ticketPrice")[0].value,
             startTime: document.getElementsByName("startTime")[0].value,
+            ticketLink: document.getElementsByName("ticketLink")[0].value
         })
     })
     const data = await response.json()

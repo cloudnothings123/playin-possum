@@ -1,0 +1,23 @@
+body {
+    font-family: courier, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    font-variant: small-caps;
+}
+
+ul {
+    list-style-type: none;
+    width: 50%;
+}
+
+li {
+    margin-bottom: 1em;
+}
+
+.bold {
+    font-weight: bold;
+}

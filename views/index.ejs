@@ -11,11 +11,12 @@
 <section id="showInfo">
     <h2>Show Info...Please</h2>
     <form action="/api" method="POST">
-        <input type="text" placeholder="date of show" name="date">
+        <input type="text" placeholder="date" name="date" id="date">
         <input type="text" placeholder="bands playing" name="bands"></input>
         <input type="text" placeholder="venue" name="venue">
         <input type="text" placeholder="ticket price" name="ticketPrice">
         <input type="text" placeholder="start time" name="startTime">
+        <input type="text" placeholder="ticket link" name="ticketLink">
         <section id="buttons">
         <button type="submit">SUBMIT NEW</button>
         <button type="button" id="updateButton">UDPATE EXISTING</button>
@@ -23,9 +24,6 @@
     </form>
 </section>
 <section id="deleteStuff">
-    <h2>Delete Something Bad</h2>
-    <input type="text" placeholder="enter band names here" name="deleteInput" id="deleteInput"></input>
-    <button id="deleteButton">DELETE</button>
 
     <h2 id="upcoming">Upcoming Shows</h2>
     <span>(for your reference)</span>

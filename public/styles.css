@@ -45,3 +45,7 @@ span {
 #deleteInput {
     width: 30em;
 }
+
+#date {
+    font-weight: bold;
+}

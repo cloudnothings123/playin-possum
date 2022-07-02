@@ -29,9 +29,19 @@ app.use(express.json())
 app.get('/',(request, response)=>{
     db.collection('playin-possum').find().toArray()
     .then(data => {
-        let showList = data.map(a => `${a.date} - ${a.bands} - ${a.venue} - ${a.ticketPrice} - ${a.startTime}`)
+        let showList = data.map(a => `${a.date} - ${a.bands} - ${a.venue} - ${a.ticketPrice} - ${a.startTime} - ${a.ticketLink}`)
         console.log(showList)
         response.render('index.ejs', { info: showList })
+    })
+    .catch(error => console.error(error))
+})
+
+app.get('/playinpossum',(request, response)=>{
+    db.collection('playin-possum').find().toArray()
+    .then(data => {
+        let showObject = Object.assign({}, data)
+        response.render('playinpossum.ejs', {info: data})
+        console.log(showObject)
     })
     .catch(error => console.error(error))
 })
