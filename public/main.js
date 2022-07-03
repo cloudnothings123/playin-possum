@@ -1,9 +1,6 @@
 document.getElementById('deleteButton').addEventListener('click', deleteEntry)
 document.getElementById('updateButton').addEventListener('click', updateEntry)
 
-let dateInput = document.getElementById('date').input
-console.log(dateInput)
-
 async function deleteEntry(){
     const input = document.getElementById("deleteInput")
     console.log(input.value)
@@ -30,7 +27,7 @@ async function updateEntry(){
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
-            date: document.getElementsByName("date")[0].value,
+            date: document.getElementsByName("date")[0].toDateString().value,
             bands: document.getElementsByName("bands")[0].value,
             venue: document.getElementsByName("venue")[0].value,
             ticketPrice: document.getElementsByName("ticketPrice")[0].value,
