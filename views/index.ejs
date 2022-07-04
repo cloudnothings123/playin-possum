@@ -29,13 +29,13 @@
     <button id="deleteButton">DELETE</button>
 
     <h2 id="upcoming">Upcoming Shows</h2>
-    <ul class="shows">
+    <ol class="shows">
     <% for(let i=0; i < info.length; i++) {%>
         <li class="show">
-            <span class="bold"><%= info[i].date %></span><span>  </span><span><%= info[i].bands %></span><span> - </span><span><%= info[i].venue %></span><span> - </span><span><%= info[i].ticketPrice %></span><span> - </span><span><%= info[i].startTime %></span><span> - </span><span><a href="<%= info[i].ticketLink %>">♣</a></span>
+            <span class="bold"><%= info[i].date %></span><span>  </span><span><%= info[i].bands %></span><span> - </span><span><%= info[i].venue %></span><span> - </span><span><%= info[i].ticketPrice %></span><span> - </span><span><%= info[i].startTime %></span><span> - </span><span><a href="<%= info[i].ticketLink %>">♣</a></span><span id='del' class='fas fa-trash-alt' onclick="return confirm('Delete this comment?')"><a href=''><img src='/trashcan.png'></a></span>
         </li>
     <% } %>
-    </ul>
+    </ol>
 
     </form>
 </section>

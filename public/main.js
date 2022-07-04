@@ -1,5 +1,6 @@
 document.getElementById('deleteButton').addEventListener('click', deleteEntry)
 document.getElementById('updateButton').addEventListener('click', updateEntry)
+const remove = document.getElementsByClassName('fa-trash-alt');
 
 async function deleteEntry(){
     const input = document.getElementById("deleteInput")
@@ -32,7 +33,7 @@ async function updateEntry(){
             venue: document.getElementsByName("venue")[0].value,
             ticketPrice: document.getElementsByName("ticketPrice")[0].value,
             startTime: document.getElementsByName("startTime")[0].value,
-            ticketLink: document.getElementsByName("ticketLink")[0].value
+            ticketLink: document.getElementsByName("ticketLink")[0].value,
         })
     })
     const data = await response.json()

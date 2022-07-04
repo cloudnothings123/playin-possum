@@ -1,5 +1,8 @@
 body {
     font-family: courier, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 h2 {
@@ -52,4 +55,8 @@ span {
 
 .bold {
     font-weight: bold;
+}
+
+img {
+    height: 2em;
 }

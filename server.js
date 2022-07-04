@@ -19,14 +19,11 @@ app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
-// app.use("/", (req, res) => {
-//     res.sendFile(__dirname + "/index.html");
-//    });
-
 app.get('/',(request, response)=>{
     db.collection('playin-possum').find().toArray()
     .then(data => {
         let showObject = Object.assign({}, data)
+        showObject = Object.values(showObject)
         response.render('index.ejs', {info: data})
         console.log(showObject)
     })
@@ -46,7 +43,7 @@ app.get('/playinpossum',(request, response)=>{
 app.post('/api', (req,res) => {
     console.log('post heard')
     db.collection('playin-possum').insertOne(
-        req.body
+        req.body,
     )
     .then(result => {
         console.log(result)
@@ -68,9 +65,6 @@ app.put('/updateEntry', (req,res) => {
         {
             $set:  req.body  
         },
-        // {
-        //     upsert: true
-        // }
     )
     .then(result => {
         console.log(result)
