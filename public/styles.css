@@ -18,7 +18,11 @@ input {
 button {
     font-family: courier, sans-serif;
     margin: .5em;
-    height: 2em;
+    height: 3em;
+}
+
+li {
+    margin-bottom: 1em;
 }
 
 #showInfo,

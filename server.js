@@ -2,7 +2,15 @@ const express = require('express')
 const app = express()
 const MongoClient = require('mongodb').MongoClient
 const cors = require('cors')
+const moment = require('moment')
 require('dotenv').config()
+
+function getNowFormattedDate(){
+    const format = "YYYY-MM-DD"
+    const date = new Date();
+    dateTime = moment(date).format(format)
+    return dateTime
+}
 
 let db,
     dbConnectionStr = process.env.DB_STRING,
@@ -20,64 +28,34 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
 app.get('/',(request, response)=>{
-    db.collection('playin-possum').find().toArray()
+    const formattedDate = getNowFormattedDate()
+    db.collection('playin-possum').find({"date" : { $gte : formattedDate }}).sort({date: 1}).toArray()
     .then(data => {
         let showObject = Object.assign({}, data)
         showObject = Object.values(showObject)
         response.render('index.ejs', {info: data})
-        console.log(showObject)
     })
     .catch(error => console.error(error))
 })
 
 app.get('/playinpossum',(request, response)=>{
-    db.collection('playin-possum').find().toArray()
+    const formattedDate = getNowFormattedDate()
+    db.collection('playin-possum').find({"date" : { $gte : formattedDate }}).sort({date: 1}).toArray()
     .then(data => {
         let showObject = Object.assign({}, data)
+        showObject = Object.values(showObject)
         response.render('playinpossum.ejs', {info: data})
-        console.log(showObject)
     })
     .catch(error => console.error(error))
 })
 
 app.post('/api', (req,res) => {
-    console.log('post heard')
     db.collection('playin-possum').insertOne(
         req.body,
     )
     .then(result => {
         console.log(result)
         res.redirect('/')
-    })
-    .catch(error => console.error(error))
-})
-
-app.put('/updateEntry', (req,res) => {
-    console.log(req.body)
-    Object.keys(req.body).forEach(key => {
-        if (req.body[key] === null || req.body[key] === undefined || req.body[key] === '') {
-          delete req.body[key];
-        }
-      });
-    console.log(req.body)
-    db.collection('playin-possum').findOneAndUpdate(
-        {name: req.body.name},
-        {
-            $set:  req.body  
-        },
-    )
-    .then(result => {
-        console.log(result)
-        res.json('Success')
-    })
-    .catch(error => console.error(error))
-})
-
-app.delete('/deleteEntry', (request, response) => {
-    db.collection('playin-possum').deleteOne({name: request.body.bands})
-    .then(result => {
-        console.log('Entry Deleted')
-        response.json('Entry Deleted')
     })
     .catch(error => console.error(error))
 })

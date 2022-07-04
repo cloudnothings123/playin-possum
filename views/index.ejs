@@ -18,21 +18,27 @@
         <input type="text" placeholder="start time" name="startTime">
         <input type="text" placeholder="ticket link" name="ticketLink">
         <section id="buttons">
-        <button type="submit">SUBMIT NEW</button>
-        <button type="button" id="updateButton">UDPATE EXISTING</button>
+        <button type="submit">Fill in fields above<br>and click here to submit</button>
         </section>
     </form>
 </section>
 <section id="deleteStuff">
-    <h2>Delete Old Show</h2>
-    <input type="text" placeholder="this will delete the oldest show" name="deleteInput" id="deleteInput"></input>
-    <button id="deleteButton">DELETE</button>
 
     <h2 id="upcoming">Upcoming Shows</h2>
     <ol class="shows">
     <% for(let i=0; i < info.length; i++) {%>
         <li class="show">
-            <span class="bold"><%= info[i].date %></span><span>  </span><span><%= info[i].bands %></span><span> - </span><span><%= info[i].venue %></span><span> - </span><span><%= info[i].ticketPrice %></span><span> - </span><span><%= info[i].startTime %></span><span> - </span><span><a href="<%= info[i].ticketLink %>">♣</a></span><span id='del' class='fas fa-trash-alt' onclick="return confirm('Delete this comment?')"><a href=''><img src='/trashcan.png'></a></span>
+            <span class="bold"><%= info[i].date %></span>
+            <span>  </span>
+            <span><%= info[i].bands %></span>
+            <span> - </span>
+            <span><%= info[i].venue %></span>
+            <span> - </span>
+            <span><%= info[i].ticketPrice %></span>
+            <span> - </span>
+            <span><%= info[i].startTime %></span>
+            <span> - </span>
+            <span><a href="<%= info[i].ticketLink %>">♣</a></span>
         </li>
     <% } %>
     </ol>
